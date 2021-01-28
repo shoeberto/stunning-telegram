@@ -8,9 +8,26 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "KinematicBody2D",
+"class": "Agent",
+"language": "GDScript",
+"path": "res://nodes/agents/agent.gd"
+}, {
+"base": "Node",
+"class": "Biological",
+"language": "GDScript",
+"path": "res://nodes/agents/state_machines/processing/states/biological.gd"
+}, {
+"base": "Node",
+"class": "ProcessingStateMachine",
+"language": "GDScript",
+"path": "res://nodes/agents/state_machines/processing/processing_state_machine.gd"
+} ]
 _global_script_class_icons={
-
+"Agent": "",
+"Biological": "",
+"ProcessingStateMachine": ""
 }
 
 [application]
