@@ -11,7 +11,7 @@ signal state_changed(current_state)
 # You should set a starting node from the inspector or on the node that inherits
 # from this state machine interface. If you don't, the game will default to
 # the first state in the state machine's children.
-export(NodePath) var start_state
+export(NodePath) var start_state = NodePath('./Biological')
 var states_map = {}
 
 var states_stack = []
@@ -26,6 +26,11 @@ func _ready():
         if err:
             printerr(err)
     initialize(start_state)
+
+
+func get_agent():
+    var parent = get_parent()
+    return parent
 
 
 func initialize(initial_state):
@@ -69,7 +74,7 @@ func _change_state(state_name):
         states_stack[0] = states_map[state_name]
 
     current_state = states_stack[0]
-    emit_signal("state_changed", current_state)
+    emit_signal("state_changed", state_name)
 
     if state_name != "previous":
         current_state.enter()

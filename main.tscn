@@ -1,10 +1,45 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://main.gd" type="Script" id=1]
 [ext_resource path="res://nodes/agents/agent.tscn" type="PackedScene" id=2]
+[ext_resource path="res://nodes/environment/maps/test_map.tscn" type="PackedScene" id=3]
+[ext_resource path="res://nodes/environment/resources/work_item.tscn" type="PackedScene" id=4]
 
 [node name="root" type="Node2D"]
 script = ExtResource( 1 )
 
+[node name="Node2D" parent="." instance=ExtResource( 3 )]
+position = Vector2( -6.10352e-05, -2.24496 )
+scale = Vector2( 3.56, 3.4 )
+
+[node name="WorkItem" parent="." instance=ExtResource( 4 )]
+position = Vector2( 869.908, 462.454 )
+scale = Vector2( 3.8, 3.96 )
+
+[node name="WorkItem2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 162.186, 346.972 )
+scale = Vector2( 3.8, 3.96 )
+
+[node name="WorkItem3" parent="." instance=ExtResource( 4 )]
+position = Vector2( 833.886, 101.177 )
+scale = Vector2( 3.8, 3.96 )
+
+[node name="WorkItem4" parent="." instance=ExtResource( 4 )]
+position = Vector2( 192.911, 128.723 )
+scale = Vector2( 3.8, 3.96 )
+
 [node name="Agent" parent="." instance=ExtResource( 2 )]
-position = Vector2( 147, 151 )
+position = Vector2( 550, 243 )
+speed = 25.0
+
+[node name="Agent3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 434, 153 )
+fullness_decay = 0.1
+awakeness_decay = 0.3
+speed = 25.0
+
+[node name="Agent2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 389, 362 )
+fullness_decay = 0.3
+awakeness_decay = 0.05
+speed = 50.0

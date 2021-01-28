@@ -20,14 +20,32 @@ _global_script_classes=[ {
 "path": "res://nodes/agents/state_machines/processing/states/biological.gd"
 }, {
 "base": "Node",
+"class": "PerformingTask",
+"language": "GDScript",
+"path": "res://nodes/agents/state_machines/processing/states/performing_task.gd"
+}, {
+"base": "Node",
 "class": "ProcessingStateMachine",
 "language": "GDScript",
 "path": "res://nodes/agents/state_machines/processing/processing_state_machine.gd"
+}, {
+"base": "Node",
+"class": "StateMachine",
+"language": "GDScript",
+"path": "res://nodes/state_machine/state_machine.gd"
+}, {
+"base": "Node",
+"class": "TaskQueue",
+"language": "GDScript",
+"path": "res://nodes/agents/state_machines/task_queue/task_queue.gd"
 } ]
 _global_script_class_icons={
 "Agent": "",
 "Biological": "",
-"ProcessingStateMachine": ""
+"PerformingTask": "",
+"ProcessingStateMachine": "",
+"StateMachine": "",
+"TaskQueue": ""
 }
 
 [application]
@@ -39,3 +57,7 @@ config/icon="res://icon.png"
 [rendering]
 
 environment/default_environment="res://default_env.tres"
+
+[tiled_importer]
+
+enable_json_format=true
