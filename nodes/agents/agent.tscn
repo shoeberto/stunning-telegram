@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://assets/sprites/test/character_femaleAdventurer_walk4.png" type="Texture" id=1]
 [ext_resource path="res://assets/sprites/test/character_femaleAdventurer_walk3.png" type="Texture" id=2]
@@ -21,8 +21,8 @@ animations = [ {
 "speed": 10.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 128, 10 )
+[sub_resource type="CircleShape2D" id=2]
+radius = 50.5582
 
 [sub_resource type="Animation" id=3]
 resource_name = "walk"
@@ -40,39 +40,6 @@ tracks/0/keys = {
 "values": [ 1, 6 ]
 }
 
-[sub_resource type="GDScript" id=4]
-script/source = "class_name PerformingTask
-extends \"res://nodes/state_machine/state.gd\"
-
-const MIN_RUNTIME = 5 #ms presumably
-
-var _runtime: float = 0.0
-onready var _task_queue = $TaskQueue
-
-
-func enter():
-    _runtime = 0.0
-
-func exit():
-    pass
-
-
-func handle_input(_event):
-    pass
-
-
-func update(_delta):
-    if _runtime < MIN_RUNTIME:
-        _runtime = _runtime + _delta
-        _task_queue.update(_delta)
-    else:
-        emit_signal('finished', 'biological')
-
-
-func _on_animation_finished(_anim_name):
-    pass
-"
-
 [node name="Agent" type="KinematicBody2D"]
 script = ExtResource( 8 )
 
@@ -82,9 +49,10 @@ animation = "walk"
 frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 1.52588e-05, 15.8919 )
-scale = Vector2( 0.16, 4.6 )
+position = Vector2( 0.749184, 14.3936 )
+scale = Vector2( 0.123072, 0.231484 )
 shape = SubResource( 2 )
+disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/walk = SubResource( 3 )
@@ -96,7 +64,7 @@ script = ExtResource( 9 )
 script = ExtResource( 10 )
 
 [node name="PerformingTask" parent="StateMachine" instance=ExtResource( 12 )]
-script = SubResource( 4 )
+work_credits = 2
 
 [node name="Meters" parent="." instance=ExtResource( 11 )]
 margin_left = -54.1056

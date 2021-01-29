@@ -1,20 +1,39 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://nodes/environment/maps/test_tiles.tres" type="TileSet" id=1]
+[ext_resource path="res://nodes/environment/resources/consumable.gd" type="Script" id=2]
+[ext_resource path="res://assets/sprites/ui/barHorizontal_white_mid.png" type="Texture" id=3]
+[ext_resource path="res://assets/sprites/ui/barHorizontal_blue_mid.png" type="Texture" id=4]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 8.25, 8.5 )
+[sub_resource type="CircleShape2D" id=1]
 
 [node name="WorkItem" type="StaticBody2D" groups=[
 "work_items",
 ]]
+script = ExtResource( 2 )
 
 [node name="TileMap" type="TileMap" parent="."]
+position = Vector2( -7.75, -7.75 )
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( 0, 1, 65536 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 8, 7.75 )
+position = Vector2( 0.25, 0 )
+scale = Vector2( 0.599999, 0.44 )
 shape = SubResource( 1 )
+
+[node name="Meter" type="TextureProgress" parent="."]
+margin_left = 6.26709
+margin_top = 0.244119
+margin_right = 19.2671
+margin_bottom = 3.24412
+rect_rotation = -90.0
+rounded = true
+texture_under = ExtResource( 3 )
+texture_progress = ExtResource( 4 )
+nine_patch_stretch = true
+__meta__ = {
+"_edit_use_anchors_": false
+}

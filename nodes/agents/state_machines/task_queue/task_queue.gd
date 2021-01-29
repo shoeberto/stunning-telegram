@@ -18,7 +18,13 @@ func _ready():
 
 
 func update(delta):
+    if get_current_task() == null:
+        return
+        
     get_current_task().update(delta)
+
+    if get_current_task().is_task_done():
+        get_current_task().emit_signal('finished')
 
 
 func handle_input(event):
@@ -51,9 +57,18 @@ func _next_task():
     if task:
         task.exit()
 
-    var next = pop_task_front()
+    pop_task_front()
+    var next = get_current_task()
     if next:
         next.enter()
+
+func _preempt_task(new):
+    var task = get_current_task()
+    if task:
+        task.exit()
+    
+    push_task_front(new)
+    new.enter()
         
 func get_agent():
     return get_parent().get_agent()

@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://nodes/environment/maps/test_tiles.tres" type="TileSet" id=1]
+[ext_resource path="res://nodes/environment/resources/occupyable.gd" type="Script" id=2]
+[ext_resource path="res://assets/sprites/ui/barHorizontal_red_mid.png" type="Texture" id=3]
+[ext_resource path="res://assets/sprites/ui/barHorizontal_white_mid.png" type="Texture" id=4]
+
+[sub_resource type="CircleShape2D" id=1]
+
+[node name="Food" type="StaticBody2D" groups=[
+"food",
+]]
+script = ExtResource( 2 )
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2( -8.5, -7.75 )
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 0, 1, 1310724 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -0.75, 0.5 )
+scale = Vector2( 0.52, 0.52 )
+shape = SubResource( 1 )
+
+[node name="Meter" type="TextureProgress" parent="."]
+margin_left = 4.1874
+margin_top = -4.74173
+margin_right = 8.1874
+margin_bottom = -0.741734
+rect_rotation = -90.0
+texture_under = ExtResource( 4 )
+texture_progress = ExtResource( 3 )
+nine_patch_stretch = true
+__meta__ = {
+"_edit_use_anchors_": false
+}

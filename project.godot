@@ -38,6 +38,11 @@ _global_script_classes=[ {
 "class": "TaskQueue",
 "language": "GDScript",
 "path": "res://nodes/agents/state_machines/task_queue/task_queue.gd"
+}, {
+"base": "Node2D",
+"class": "TelegramMap",
+"language": "GDScript",
+"path": "res://nodes/environment/maps/telegram_map.gd"
 } ]
 _global_script_class_icons={
 "Agent": "",
@@ -45,7 +50,8 @@ _global_script_class_icons={
 "PerformingTask": "",
 "ProcessingStateMachine": "",
 "StateMachine": "",
-"TaskQueue": ""
+"TaskQueue": "",
+"TelegramMap": ""
 }
 
 [application]

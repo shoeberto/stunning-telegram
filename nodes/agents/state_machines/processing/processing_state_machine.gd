@@ -31,7 +31,7 @@ func _ready():
 
 func _physics_process(delta):
     ._physics_process(delta)
-    get_agent().decay()
+    get_agent().decay(delta)
 
 
 func _unhandled_input(event):
